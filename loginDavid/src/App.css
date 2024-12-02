@@ -1,0 +1,21 @@
+.blackBlock {
+  background-image: url(./textura-hoja-verde.jpg);
+  background-size: cover;
+}
+
+.images{
+  filter: drop-shadow(10px 10px 8px black);
+}
+/* 
+.contain{
+  backdrop-filter: blur(3px);
+} */
+
+/* Movimiento del label */
+
+
+
+/* Mantener el label arriba si el input tiene contenido */
+input:not(:placeholder-shown) + label {
+  transform: translateY(-1.5rem); /* Misma posición que peer-focus */
+}
