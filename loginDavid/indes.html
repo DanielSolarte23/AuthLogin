@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="e.css">
+    <title>Login UI</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'verde-principal': '#72aa00',
+                        'Gris': '#d1d1d1',
+                        'Cafe-Footer': '#635B4F'
+                    },
+                    fontFamily: {
+                        dmSans: ["DM Sans", "sans-serif"],
+                    },
+                    keyframes: {
+                        "hidde-left": {
+                            "0%": {
+                                left: "0%",
+                                opacity: "1",
+                            },
+                            "50%": {
+                                left: "-100%",
+                                opacity: "0",
+                            },
+                            "100%": {
+                                left: "-200%",
+                                opacity: "0",
+                            },
+                        },
+                        "hidde-right": {
+                            "0%": {
+                                left: "0%",
+                                opacity: "1",
+                            },
+                            "50%": {
+                                left: "100%",
+                                opacity: "0",
+                            },
+                            "100%": {
+                                left: "200%",
+                                opacity: "0",
+                            },
+                        },
+                        "appear-left": {
+                            "0%": {
+                                left: "-200%",
+                                opacity: "0",
+                            },
+                            "50%": {
+                                left: "-100%",
+                                opacity: "0",
+                            },
+                            "100%": {
+                                left: "0%",
+                                opacity: "1",
+                            },
+                        },
+                        "appear-right": {
+                            "0%": {
+                                left: "200%",
+                                opacity: "0",
+                            },
+                            "50%": {
+                                left: "100%",
+                                opacity: "0",
+                            },
+                            "100%": {
+                                left: "0%",
+                                opacity: "1",
+                            },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-white font-dmSans flex font-semibold justify-center items-center h-screen">
+    <article
+        class="bg-white p-10 py-16 rounded-xl shadow-xl grid grid-cols-[300px_300px] min-w-[800px] justify-between relative overflow-hidden">
+        <!-- Black Block -->
+        <div
+            class="absolute bottom-0 w-[200%] h-[200%] rotate-[57deg] left-[15%] transition-all duration-[1s] blackBlock">
+        </div>
+
+        <!-- Login Form -->
+        <form class="grid gap-10 relative z-10 row-start-1 col-start-1 loginForm">
+            <h2
+                class="text-2xl font-bold after:block after:w-2/5 after:h-1 after:bg-verde-principal after:rounded-full after:mx-auto after:mt-1 text-center mb-2 text-zinc-600">
+                Inicia Sesión
+            </h2>
+
+            <fieldset
+                class="relative border-b-2 border-zinc-600 hover:border-verde-principal  focus:border-verde-principal flex items-center">
+                <input class="outline-none peer flex-1 bg-transparent h-full font-normal" type="text" placeholder="  " id="username" />
+                <label class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-verde-principal transition-all text-zinc-600"
+                    for="username">Correo</label>
+                <i class="bx bxs-user text-verde-principal"></i>
+            </fieldset>
+
+            <fieldset
+                class="relative border-b-2  border-zinc-600 flex items-center transition-colors  hover:border-verde-principal">
+                <input class="outline-none peer flex-1 bg-transparent h-full" placeholder="  " type="password" id="password" />
+                <label class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-verde-principal transition-all text-zinc-600"
+                    for="password">Contraseña</label>
+                <i class="bx bxs-lock-alt text-verde-principal "></i>
+            </fieldset>
+
+            <button class="bg-verde-principal rounded-lg text-white py-2 hover:scale-105 transition-transform h-10">
+                Iniciar Sesión
+            </button>
+
+            <span class="font-normal text-zinc-600">
+                No tiene una cuenta?
+                <button type="button" class="font-bold text-verde-principal signUpBtn">
+                    Registrarse
+                </button></span>
+        </form>
+
+        <div
+            class="text-end max-w-[250px] ml-auto flex flex-col justify-center gap-4 text-white relative z-10 row-start-1 col-start-2 rightText">
+            <div class="object-contain rounded-full contain p-0">
+                <img class="images" src="./public/ARV8.png" alt="">
+            </div>
+        </div>
+
+        <!-- Left Text -->
+        <div
+            class="text-start max-w-[250px] mr-auto flex flex-col justify-center gap-4 text-white relative z-10 row-start-1 col-start-1 leftText invisible">
+            <div class="object-contain">
+                <img class="images" src="./public/ARV8.png" alt="">
+            </div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <form class="grid gap-10 relative z-10 row-start-1 col-start-2 signUpForm invisible">
+            <h2
+                class="text-2xl font-bold after:block after:w-2/5 after:h-1 after:bg-verde-principal after:rounded-full after:mx-auto after:mt-1 text-center mb-2">
+                Registrarse
+            </h2>
+
+            <fieldset class="relative border-b-2 border-zinc-600 hover:border-verde-principal pb-2 flex items-center">
+                <input class="outline-none peer flex-1 bg-transparent h-full font-normal" type="text" id="nombreCompleto" placeholder=" "/>
+                <label class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-verde-principal transition-all"
+                    for="nombreCompleto">Nombre completo</label>
+                <i class="bx bxs-user text-verde-principal"></i>
+            </fieldset>
+
+            <fieldset class="relative border-b-2 border-zinc-600 hover:border-verde-principal pb-2 flex items-center">
+                <input class="outline-none peer flex-1 bg-transparent font-normal" type="email" id="emailRegistro" placeholder=" "/>
+                <label class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-verde-principal transition-all"
+                    for="emailRegistro">Correo</label>
+                <i class="bx bxs-user text-verde-principal"></i>
+            </fieldset>
+
+            <fieldset class="relative border-b-2 border-zinc-600 hover:border-verde-principal pb-2 flex items-center">
+                <input class="outline-none peer flex-1 bg-transparent font-normal" type="password" id="passwordRegister" placeholder="  "/>
+                <label class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-verde-principal transition-all"
+                    for="passwordRegister">Contraseña</label>
+                <i class="bx bxs-lock-alt text-verde-principal"></i>
+            </fieldset>
+
+            <button class="bg-verde-principal  rounded-lg text-white h-10 py-2 hover:scale-105 transition-transform">
+                Registrarse
+            </button>
+
+            <span class="font-normal">
+                Ya tienes una cuenta?
+                <button type="button" class="text-verde-principal font-bold loginBtn">Inicia Sesión</button></span>
+        </form>
+    </article>
+</body>
+<script>
+    const blackBlock = document.querySelector(".blackBlock");
+    const loginForm = document.querySelector(".loginForm");
+    const signUpForm = document.querySelector(".signUpForm");
+    const rightText = document.querySelector(".rightText");
+    const leftText = document.querySelector(".leftText");
+
+    const loginBtn = document.querySelector(".loginBtn");
+    const signUpBtn = document.querySelector(".signUpBtn");
+
+    signUpBtn.addEventListener("click", () => {
+        blackBlock.classList.remove("rotate-[57deg]", "left-[15%]");
+        blackBlock.classList.add("rotate-[-57deg]", "left-[-115%]");
+        signUpForm.classList.remove("invisible");
+        leftText.classList.remove("invisible");
+        loginForm.classList.add("animate-[hidde-left_0.5s_linear_forwards]");
+        rightText.classList.add("animate-[hidde-right_0.5s_linear_forwards]");
+        leftText.classList.add("animate-[appear-left_0.5s_linear_forwards]");
+        signUpForm.classList.add("animate-[appear-right_0.5s_linear_forwards]");
+
+        leftText.classList.remove("animate-[hidde-left_0.5s_linear_forwards]");
+        signUpForm.classList.remove("animate-[hidde-right_0.5s_linear_forwards]");
+        setTimeout(() => {
+            rightText.classList.add("invisible");
+            loginForm.classList.add("invisible");
+        }, 500);
+    });
+
+    loginBtn.addEventListener("click", () => {
+        blackBlock.classList.remove("rotate-[-57deg]", "left-[-115%]");
+        blackBlock.classList.add("rotate-[57deg]", "left-[15%]");
+
+        rightText.classList.remove("invisible");
+        loginForm.classList.remove("invisible");
+        leftText.classList.add("animate-[hidde-left_0.5s_linear_forwards]");
+        signUpForm.classList.add("animate-[hidde-right_0.5s_linear_forwards]");
+
+        loginForm.classList.remove("animate-[hidde-left_0.5s_linear_forwards]");
+        rightText.classList.remove("animate-[hidde-right_0.5s_linear_forwards]");
+
+        loginForm.classList.add("animate-[appear-left_0.5s_linear_forwards]");
+        rightText.classList.add("animate-[appear-right_0.5s_linear_forwards]");
+
+        setTimeout(() => {
+            signUpForm.classList.add("invisible");
+            leftText.classList.add("invisible");
+        }, 500);
+    });
+
+</script>
+
+</html>
